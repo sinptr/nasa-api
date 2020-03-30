@@ -12,6 +12,6 @@ declare module 'styled-components' {
       footer: string;
       footerText: string;
     };
-    spacing: (factor: number | Array<number>) => string;
+    spacing: (...args: number[]) => string;
   }
 }

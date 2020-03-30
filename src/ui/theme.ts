@@ -21,11 +21,10 @@ export const theme: DefaultTheme = {
     footerText: palette.colors[2],
   },
   palette,
-  spacing(factor = 0) {
-    const units = Array.isArray(factor) ? factor : [factor];
-    if (units.length > 4) {
-      throw new Error('Factor array max length must be 4');
+  spacing(...args) {
+    if (args.length > 4) {
+      throw new Error('Arguments max length must be 4');
     }
-    return `${units.map(f => f * spacingUnit).join('px ')}px`;
+    return `${args.map(f => f * spacingUnit).join('px ')}px`;
   },
 };

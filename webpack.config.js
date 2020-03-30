@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   resolve: {
@@ -35,7 +36,6 @@ module.exports = {
       chunks: 'all',
     },
   },
-
   module: {
     rules: [
       {
@@ -51,6 +51,9 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+    }),
+    new Dotenv({
+      safe: true,
     }),
   ],
 };

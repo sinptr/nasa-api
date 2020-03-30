@@ -4,6 +4,8 @@ import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
 import { theme, GlobalStyle } from '../../ui';
 import { Layout } from '../layout';
+import { Card } from '../card';
+import '../../effector/init';
 
 function Component() {
   return (
@@ -11,7 +13,7 @@ function Component() {
       <Normalize />
       <GlobalStyle />
       <Layout>
-        <span>Hello</span>
+        <Card />
       </Layout>
     </ThemeProvider>
   );
