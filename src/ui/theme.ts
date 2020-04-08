@@ -16,6 +16,7 @@ export const theme: DefaultTheme = {
   colors: {
     primary: palette.colors[4],
     primaryText: palette.colors[0],
+    card: palette.colors[2],
     main: palette.colors[3],
     footer: palette.colors[0],
     footerText: palette.colors[2],

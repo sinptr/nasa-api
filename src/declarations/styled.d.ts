@@ -11,6 +11,7 @@ declare module 'styled-components' {
       main: string;
       footer: string;
       footerText: string;
+      card: string;
     };
     spacing: (...args: number[]) => string;
   }

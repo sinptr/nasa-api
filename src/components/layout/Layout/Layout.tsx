@@ -1,20 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
+import { Header } from '../Header';
 import { LayoutProps } from './Layout.types';
+import { Nav } from '../Nav';
+import { closeNav } from '../../../effector/nav';
+
+const Section = styled.section`
+  background-color: ${({ theme }) => theme.colors.main};
+  overflow: auto;
+  flex: 1;
+`;
 
 const Main = styled.main`
-  background-color: ${({ theme }) => theme.colors.main};
-  flex-grow: 1;
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  position: relative;
 `;
 
 export function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
-      <Main>{children}</Main>
-      <Footer />
+      <Main>
+        <Nav />
+        <Section onClick={closeNav}>{children}</Section>
+      </Main>
     </>
   );
 }
