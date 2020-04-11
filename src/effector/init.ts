@@ -1,3 +1,3 @@
 import './apod/init';
 import './nav/init';
-import './device/init';
+import './media/init';

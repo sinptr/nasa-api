@@ -2,19 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStore } from 'effector-react';
 import { $isOpen } from '../../../effector/nav/state';
+import { media } from '../../../constants';
 
-const NavContainer = styled.nav<{ opened?: boolean }>`
+const NavContainer = styled.nav<{ open?: boolean }>`
   position: absolute;
   height: 100%;
   z-index: 1;
   transition: transform 0.3s;
-  transform: ${({ opened }) => !opened && 'translateX(-100%)'};
+  transform: ${({ open }) => !open && 'translateX(-100%)'};
   background-color: ${({ theme }) => theme.colors.footer};
   color: ${({ theme }) => theme.colors.primary};
   padding: ${({ theme }) => theme.spacing(2)};
   width: 256px;
 
-  @media (min-width: 1024px) {
+  // если просто написать @media ${media.desktop}, 
+  // то IDE кидает ошибку, т.к. парсер не воспринимает такое
+  @media screen and ${media.desktop} {
     position: static;
     transition: none;
   }
@@ -31,10 +34,10 @@ const NavItem = styled.li`
 `;
 
 export function Nav() {
-  const opened = useStore($isOpen);
+  const open = useStore($isOpen);
 
   return (
-    <NavContainer opened={opened}>
+    <NavContainer open={open}>
       <NavList>
         <NavItem>Apod</NavItem>
         <NavItem>Mars Rover Photos</NavItem>

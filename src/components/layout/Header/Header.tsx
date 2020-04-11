@@ -6,7 +6,7 @@ import { toggleNav } from '../../../effector/nav';
 import { $isOpen } from '../../../effector/nav/state';
 import { Close } from '../../../ui/icons/svg/Close';
 import { NasaFavicon } from '../../../ui/images';
-import { $isMobile } from '../../../effector/device/state';
+import { $mobile } from '../../../effector/media/state';
 
 const HeaderStyled = styled.header`
   grid-area: header;
@@ -40,11 +40,11 @@ const Logo = styled.img`
 
 export function Header() {
   const isOpen = useStore($isOpen);
-  const isMobile = useStore($isMobile);
+  const mobile = useStore($mobile);
 
   return (
     <HeaderStyled>
-      {isMobile && <IconButton onClick={toggleNav}>{isOpen ? <Close /> : <Menu />}</IconButton>}
+      {mobile && <IconButton onClick={toggleNav}>{isOpen ? <Close /> : <Menu />}</IconButton>}
       <Logo src={NasaFavicon} alt="NASA" />
       <Title>NASA API Explorer</Title>
     </HeaderStyled>

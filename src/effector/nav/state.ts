@@ -1,4 +1,4 @@
 import { createStore } from 'effector';
-import { isMobile } from '../../utils';
+import { $desktop } from '../media/state';
 
-export const $isOpen = createStore(!isMobile());
+export const $isOpen = createStore($desktop.getState());
