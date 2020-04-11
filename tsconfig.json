@@ -17,7 +17,7 @@
     // use typescript to transpile jsx to js
     "jsx": "react",
     "baseUrl": "./src",
-    "module": "es6",
+    "module": "esnext",
     "removeComments": true,
     "alwaysStrict": true,
     "allowUnreachableCode": false,

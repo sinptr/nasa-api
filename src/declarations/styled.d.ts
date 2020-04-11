@@ -9,8 +9,8 @@ declare module 'styled-components' {
       primary: string;
       primaryText: string;
       main: string;
-      footer: string;
-      footerText: string;
+      secondary: string;
+      secondaryText: string;
       card: string;
     };
     spacing: (...args: number[]) => string;

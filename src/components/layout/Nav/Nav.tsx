@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStore } from 'effector-react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import { $isOpen } from '../../../effector/nav/state';
 import { media } from '../../../constants';
 
@@ -10,9 +11,9 @@ const NavContainer = styled.nav<{ open?: boolean }>`
   z-index: 1;
   transition: transform 0.3s;
   transform: ${({ open }) => !open && 'translateX(-100%)'};
-  background-color: ${({ theme }) => theme.colors.footer};
+  background-color: ${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.colors.primary};
-  padding: ${({ theme }) => theme.spacing(2)};
+  padding: ${({ theme }) => theme.spacing(2, 0)};
   width: 256px;
 
   // если просто написать @media ${media.desktop}, 
@@ -29,9 +30,27 @@ const NavList = styled.ul`
   margin: 0;
 `;
 
-const NavItem = styled.li`
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
+const NavItemStyled = styled(NavLink)<NavLinkProps>`
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: ${({ theme }) => theme.spacing(1, 2)};
+  transition: background-color, color 0.1s ease-in;
+  cursor: pointer;
+
+  &.active {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
+  }
 `;
+
+function NavItem(props: Omit<NavLinkProps, 'exact'>) {
+  return <NavItemStyled exact {...props} />;
+}
 
 export function Nav() {
   const open = useStore($isOpen);
@@ -39,8 +58,8 @@ export function Nav() {
   return (
     <NavContainer open={open}>
       <NavList>
-        <NavItem>Apod</NavItem>
-        <NavItem>Mars Rover Photos</NavItem>
+        <NavItem to="/">Apod</NavItem>
+        <NavItem to="/mars">Mars Rover Photos</NavItem>
       </NavList>
     </NavContainer>
   );

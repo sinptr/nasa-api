@@ -31,17 +31,23 @@ const dash = keyframes`
     }
 `;
 
-export const Spinner = styled<React.FC<SpinnerProps>>(({ size, ...rest }) => (
-  <svg {...rest}>
-    <Circle />
-  </svg>
-))`
+const SpinnerContainer = styled.div`
   position: absolute;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Spinner = styled<React.FC<SpinnerProps>>(({ size, ...rest }) => (
+  <SpinnerContainer>
+    <svg {...rest}>
+      <Circle />
+    </svg>
+  </SpinnerContainer>
+))`
   animation: ${rotate} 1s linear infinite;
   width: ${({ size = 50 }) => `${size}px`};
   height: ${({ size = 50 }) => `${size}px`};
