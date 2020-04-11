@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
 import { theme, GlobalStyle } from '../../ui';
 import { Layout } from '../layout';
-import { Card } from '../card';
+import { Apod } from '../apod';
 import '../../effector/init';
 
 function Component() {
@@ -13,7 +13,7 @@ function Component() {
       <Normalize />
       <GlobalStyle />
       <Layout>
-        <Card />
+        <Apod />
       </Layout>
     </ThemeProvider>
   );

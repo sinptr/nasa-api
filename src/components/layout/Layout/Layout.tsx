@@ -9,13 +9,13 @@ const Section = styled.section`
   background-color: ${({ theme }) => theme.colors.main};
   overflow: auto;
   flex: 1;
+  position: relative;
 `;
 
 const Main = styled.main`
   display: flex;
   flex: 1;
   overflow: auto;
-  position: relative;
 `;
 
 export function Layout({ children }: LayoutProps) {

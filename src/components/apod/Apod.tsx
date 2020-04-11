@@ -24,8 +24,8 @@ const Img = styled.img`
   margin: 0 auto;
 `;
 
-export function Card() {
-  const data = useStore($apod);
+export function Apod() {
+  const { title, url, explanation } = useStore($apod);
 
   useEffect(() => {
     fetchApod();
@@ -33,9 +33,9 @@ export function Card() {
 
   return (
     <Container>
-      <Title>{data.title}</Title>
-      <Img alt={data.title} src={data.url} />
-      <Description>{data.explanation}</Description>
+      <Title>{title}</Title>
+      <Img alt={title} src={url} />
+      <Description>{explanation}</Description>
     </Container>
   );
 }
