@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Header } from '../Header';
 import { LayoutProps } from './Layout.types';
 import { Nav } from '../Nav';
-import { closeNav } from '../../../effector/nav';
+import { closeNav } from '../../effector/nav';
 
 const Section = styled.section`
   background-color: ${({ theme }) => theme.colors.main};

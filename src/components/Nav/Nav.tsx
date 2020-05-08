@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStore } from 'effector-react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
-import { $isOpen } from '../../../effector/nav/state';
-import { media } from '../../../constants';
+import { $isOpen } from '../../effector/nav/state';
+import { media } from '../../constants';
 
 const NavContainer = styled.nav<{ open?: boolean }>`
   position: absolute;
@@ -15,6 +15,7 @@ const NavContainer = styled.nav<{ open?: boolean }>`
   color: ${({ theme }) => theme.colors.primary};
   padding: ${({ theme }) => theme.spacing(2, 0)};
   width: 256px;
+  overflow: auto;
 
   // если просто написать @media ${media.desktop}, 
   // то IDE кидает ошибку, т.к. парсер не воспринимает такое

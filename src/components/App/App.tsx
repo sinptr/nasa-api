@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { theme, GlobalStyle } from '../../ui';
-import { Layout } from '../layout';
+import { Layout } from '../Layout';
 import '../../effector/init';
 import { Routes } from '../../pages';
 

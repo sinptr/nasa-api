@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Spinner } from '../components/common/Spinner';
+import { Spinner } from '../components/Spinner';
 
 const ApodPage = lazy(() => import('./Apod'));
 
@@ -9,6 +9,7 @@ export function Routes() {
     <Suspense fallback={<Spinner />}>
       <Switch>
         <Route exact path="/" component={ApodPage} />
+        <Route path="/mars" component={Spinner} />
         {/* TODO: 404 */}
         <Route path="*" component={Spinner} />
       </Switch>

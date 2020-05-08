@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStore } from 'effector-react';
-import { Menu } from '../../../ui/icons';
-import { toggleNav } from '../../../effector/nav';
-import { $isOpen } from '../../../effector/nav/state';
-import { Close } from '../../../ui/icons/svg/Close';
-import { NasaFavicon } from '../../../ui/images';
-import { $mobile } from '../../../effector/media/state';
+import { Menu } from '../../ui/icons';
+import { toggleNav } from '../../effector/nav';
+import { $isOpen } from '../../effector/nav/state';
+import { Close } from '../../ui/icons/svg/Close';
+import { NasaFavicon } from '../../ui/images';
+import { $mobile } from '../../effector/media/state';
 
 const HeaderStyled = styled.header`
   grid-area: header;

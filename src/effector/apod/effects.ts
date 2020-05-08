@@ -1,4 +1,5 @@
 import { createEffect } from 'effector';
-import { Apod, getApod } from '../../api';
+import { getApod } from '../../api';
+import { Apod } from '../../api/types';
 
 export const fetchApodFx = createEffect<void, Apod>().use(getApod);
