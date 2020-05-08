@@ -1,9 +1,9 @@
 import React from 'react';
 
-export interface CollapseProps {
+export type CollapseProps = {
   children: React.ReactNode;
   in: boolean;
   duration?: number;
-}
+};
 
 export type CollapseNode = HTMLElement;

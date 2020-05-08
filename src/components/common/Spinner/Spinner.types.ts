@@ -1,3 +1,3 @@
-export interface SpinnerProps {
+export type SpinnerProps = {
   size?: number;
-}
+};
