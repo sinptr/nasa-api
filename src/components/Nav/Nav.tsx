@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStore } from 'effector-react';
-import { NavLink, NavLinkProps } from 'react-router-dom';
 import { $isOpen } from '../../effector/nav/state';
 import { media } from '../../constants';
+import { NavItem } from './NavItem';
+import { NavItemGroup } from './NavItemGroup';
+import { NavList } from './NavList';
 
 const NavContainer = styled.nav<{ open?: boolean }>`
   position: absolute;
@@ -17,41 +19,11 @@ const NavContainer = styled.nav<{ open?: boolean }>`
   width: 256px;
   overflow: auto;
 
-  // если просто написать @media ${media.desktop}, 
-  // то IDE кидает ошибку, т.к. парсер не воспринимает такое
   @media screen and ${media.desktop} {
     position: static;
     transition: none;
   }
 `;
-
-const NavList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const NavItemStyled = styled(NavLink)<NavLinkProps>`
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  padding: ${({ theme }) => theme.spacing(1, 2)};
-  transition: background-color, color 0.1s ease-in;
-  cursor: pointer;
-
-  &.active {
-    text-decoration: underline;
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-`;
-
-function NavItem(props: Omit<NavLinkProps, 'exact'>) {
-  return <NavItemStyled exact {...props} />;
-}
 
 export function Nav() {
   const open = useStore($isOpen);
@@ -60,7 +32,15 @@ export function Nav() {
     <NavContainer open={open}>
       <NavList>
         <NavItem to="/">Apod</NavItem>
-        <NavItem to="/mars">Mars Rover Photos</NavItem>
+        <NavItemGroup path="/mars" title="Mars Rover Photos">
+          {/* TODO: добавить вывод списка, которые берется из АПИ */}
+          <NavItem offset={2} to="/mars/apollo">
+            Apollo
+          </NavItem>
+          <NavItem offset={2} to="/mars/curiosity">
+            Curiosity
+          </NavItem>
+        </NavItemGroup>
       </NavList>
     </NavContainer>
   );

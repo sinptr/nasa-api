@@ -13,7 +13,8 @@ const Wrap = styled.div`
   overflow: hidden;
 `;
 
-export function Collapse({ children, in: inProp, duration = 300 }: CollapseProps) {
+// TODO: вынести duration в тему
+export function Collapse({ children, in: inProp, duration = 150 }: CollapseProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   /* eslint-disable no-param-reassign */

@@ -41,9 +41,9 @@ const SpinnerContainer = styled.div`
   align-items: center;
 `;
 
-export const Spinner = styled<React.FC<SpinnerProps>>(({ size, ...rest }) => (
+export const Spinner = styled<React.FC<SpinnerProps>>(() => (
   <SpinnerContainer>
-    <svg {...rest}>
+    <svg>
       <Circle />
     </svg>
   </SpinnerContainer>
