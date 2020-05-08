@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { SpinnerProps } from './Spinner.types';
 
 const Circle = styled.circle.attrs(() => ({
   cx: 25,
@@ -41,16 +40,16 @@ const SpinnerContainer = styled.div`
   align-items: center;
 `;
 
-export const Spinner = styled<React.FC<SpinnerProps>>(() => (
+export const Spinner = styled(({ className }) => (
   <SpinnerContainer>
-    <svg>
+    <svg className={className}>
       <Circle />
     </svg>
   </SpinnerContainer>
 ))`
   animation: ${rotate} 1s linear infinite;
-  width: ${({ size = 50 }) => `${size}px`};
-  height: ${({ size = 50 }) => `${size}px`};
+  width: 50px;
+  height: 50px;
 
   & ${Circle} {
     stroke: ${({ theme }) => theme.colors.primary};

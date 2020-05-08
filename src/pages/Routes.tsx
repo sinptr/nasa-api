@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Spinner } from '../components/Spinner';
+import { Spinner } from '../ui/components/Spinner';
 
 const ApodPage = lazy(() => import('./Apod'));
 
