@@ -22,6 +22,7 @@ const Description = styled.p`
 
 const Img = styled.img`
   max-width: 100%;
+  max-height: 80vh;
   margin: 0 auto;
 `;
 
