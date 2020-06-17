@@ -1,7 +1,7 @@
 import { guard } from 'effector';
 import { fetchApod } from './events';
 import { fetchApodFx } from './effects';
-import { extractPayload } from '../../utils/extract-payload';
+import { extractPayload } from '../../utils';
 import { $apod, $apodIsEmpty } from './state';
 
 $apod.on(fetchApodFx.doneData, extractPayload);
